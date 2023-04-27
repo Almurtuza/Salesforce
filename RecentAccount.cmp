@@ -1,0 +1,28 @@
+<aura:component controller="RecentAccount" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    <aura:attribute name="accounts" type="Account[]" />
+      <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+          <thead><tr class="slds-text-title_caps"/>
+            <tr class="slds-text-title_caps">
+                <th scope="col" class="">
+                    <div class="slds-truncate" title="Name">Account Name</div>
+                </th>
+                <th scope="col" class="">
+                    <div class="slds-truncate" title="Created Date">Created Date</div>
+                </th> 
+            </tr>
+        </thead>  
+        <tbody>
+            <aura:iteration items="{!v.accounts}" var="Act">
+           <tr>
+                    <td scope="row" data-label=" Name" class="">
+                        <div class="slds-truncate" >{!Act.Name}</div> 
+                    </td>
+                    <td data-label="ID">
+                        <div class="slds-truncate" >{!Act.CreatedDate}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+            </tbody>
+    </table>
+</aura:component>

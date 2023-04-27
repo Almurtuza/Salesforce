@@ -1,0 +1,9 @@
+public class RecentAccount {
+    
+    @auraEnabled
+    public static list<account> getRecentAccounts()
+    {
+        list<account> accs =[select id,name, createdDate from account  order by createdDate desc limit 10];
+        return accs;
+    }
+}

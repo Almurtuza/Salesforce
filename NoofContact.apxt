@@ -1,0 +1,7 @@
+trigger NoofContact on Contact (after insert, after update, after delete, after undelete) {
+    
+    if(Trigger.isinsert || Trigger.isupdate || trigger.isdelete || Trigger.isundelete){
+        CountContactOnAccountHandler.CountContactOnAccountHelper(trigger.new, trigger.old);
+    }
+
+}
